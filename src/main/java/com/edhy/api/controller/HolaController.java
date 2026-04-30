@@ -14,7 +14,7 @@ public class HolaController {
 
 	@GetMapping("/hola")
 	public String saludar() {
-		return "Primer API hola";
+		return "Primer API hola Pipeline";
 	}
 	
 }
