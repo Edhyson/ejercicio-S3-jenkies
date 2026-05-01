@@ -40,6 +40,14 @@ pipeline {
                 archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
             }
         }
+		stage('Despliegue a S3 (Simulado)') {
+			steps {
+				echo 'Usando llaves temporales para simular conexión...'
+				// Aquí simulamos que intentamos subir el archivo
+				echo 'Subiendo archivo: target/mi-api.jar a s3://bucket-ejercicio/'
+				echo 'Proceso completado al 100%'
+			}
+		}
     }
 
     post {
