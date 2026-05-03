@@ -40,14 +40,22 @@ pipeline {
                 archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
             }
         }
-		stage('Despliegue a S3 (Simulado)') {
-			steps {
-				echo 'Usando llaves temporales para simular conexión...'
-				// Aquí simulamos que intentamos subir el archivo
-				echo 'Subiendo archivo: target/mi-api.jar a s3://bucket-ejercicio/'
-				echo 'Proceso completado al 100%'
-			}
-		}
+		stage('Construir Imagen Docker') {
+            steps {
+                script {
+                    // Nombre de la imagen con el número de build
+                    def imageName = "mi-api-s3:${env.BUILD_NUMBER}"
+                    
+                    // Construir la imagen usando el Dockerfile
+                    sh "docker build -t ${imageName} ."
+                    
+                    // Opcional: subirla a un registry
+                    // sh "docker login -u ${DOCKER_USER} -p ${DOCKER_PASS}"
+                    // sh "docker tag ${imageName} myrepo/mi-api-s3:${env.BUILD_NUMBER}"
+                    // sh "docker push myrepo/mi-api-s3:${env.BUILD_NUMBER}"
+                }
+            }
+        }
     }
 
     post {
