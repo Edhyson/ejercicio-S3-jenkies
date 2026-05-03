@@ -14,7 +14,7 @@ public class HolaController {
 
 	@GetMapping("/hola")
 	public String saludar() {
-		return "firts API Hello word Pipeline  with automatic trigger  ";
+		return "firts API Hello word Pipeline  with automatic trigger , docker, imagenes .. ";
 	}
 	
 }
