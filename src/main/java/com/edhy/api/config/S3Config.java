@@ -20,8 +20,7 @@ public class S3Config {
 	
     @Bean
     public S3Client s3Client() {
-    	System.out.println("probando.....");
-    	System.out.println(s3Endpoint);
+    	System.out.println("s3Endpoint : "+s3Endpoint);
     	
         return S3Client.builder()
                 .endpointOverride(URI.create(s3Endpoint)) // LocalStack endpoint
