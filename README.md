@@ -75,6 +75,9 @@ networks:
   mynet:
     driver: bridge
 
+
+
+\\wsl$\Ubuntu\root\localstack
 - Levantar todo:
   docker-compose up -d
 
