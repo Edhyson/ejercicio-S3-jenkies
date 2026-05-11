@@ -47,8 +47,7 @@ pipeline {
                     def imageName = "mi-api-s3:${env.BUILD_NUMBER}"
                     
                     // Construir la imagen usando el Dockerfile
-                    bat "docker build -t ${imageName} ."
-                    
+					bat "docker build -t ${imageName} -t mi-api-s3:latest ."
                     // Opcional: subirla a un registry
                     // sh "docker login -u ${DOCKER_USER} -p ${DOCKER_PASS}"
                     // sh "docker tag ${imageName} myrepo/mi-api-s3:${env.BUILD_NUMBER}"
