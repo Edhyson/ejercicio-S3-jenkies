@@ -57,21 +57,15 @@ pipeline {
         }			
 		stage('Clean container') {
 			steps {
-				echo 'El archivo .jar se ha generado con éxito en la carpeta target.'
-				//bat '''
-				/	REM Verificar si existe el contenedor mi-api
-				//	for /f %%i in ('docker ps -q -f "name=mi-api"') do (
-				//		docker-compose down
-				//	)
-				//'''
-			}
+                echo 'Clean '
+                // Esto guarda el archivo generado dentro de Jenkins para que lo puedas descargar
+               
+            }
 		}
 		stage('Run container') {
 			steps {
-				//bat '''
-				//	REM Levantar todo el stack con la nueva imagen
-				//	docker-compose up -d
-				//'''
+                echo 'RUN '
+                // Esto guarda el archivo generado dentro de Jenkins para que lo puedas descargar               
 			}
 		}
 
