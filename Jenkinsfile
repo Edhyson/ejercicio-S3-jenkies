@@ -54,25 +54,24 @@ pipeline {
                     // sh "docker push myrepo/mi-api-s3:${env.BUILD_NUMBER}"
                 }
             }
-        }
-		
-		
+        }			
 		stage('Clean container') {
 			steps {
-				 bat '''
-					REM Verificar si existe el contenedor mi-api
-					for /f %%i in ('docker ps -q -f "name=mi-api"') do (
-						docker-compose down
-					)
-				'''
+				echo 'El archivo .jar se ha generado con éxito en la carpeta target.'
+				//bat '''
+				/	REM Verificar si existe el contenedor mi-api
+				//	for /f %%i in ('docker ps -q -f "name=mi-api"') do (
+				//		docker-compose down
+				//	)
+				//'''
 			}
 		}
 		stage('Run container') {
 			steps {
-				bat '''
-					REM Levantar todo el stack con la nueva imagen
-					docker-compose up -d
-				'''
+				//bat '''
+				//	REM Levantar todo el stack con la nueva imagen
+				//	docker-compose up -d
+				//'''
 			}
 		}
 
