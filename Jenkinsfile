@@ -55,6 +55,28 @@ pipeline {
                 }
             }
         }
+		
+		
+		stage('Clean container') {
+			steps {
+				bat '''
+					REM Si ya existe el contenedor mi-api, bajar el stack
+					for /f %%i in ('docker ps -q -f name=mi-api') do (
+						docker-compose down
+					)
+				'''
+			}
+		}
+		stage('Run container') {
+			steps {
+				bat '''
+					REM Levantar todo el stack con la nueva imagen
+					docker-compose up -d
+				'''
+			}
+		}
+
+		
     }
 
     post {
