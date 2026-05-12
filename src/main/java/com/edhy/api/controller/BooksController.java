@@ -29,6 +29,7 @@ public class BooksController {
 		books.addAll(List.of(new Book(1l, "one", "frank kaf"), new Book(2l, "two", "jhony"),
 				new Book(3l, "three", "frank kaf"), new Book(4l, "four", "Daniels polosky"),
 				new Book(5l, "five", "frank kaf"), new Book(6l, "six", "william blake"),
+				new Book(5l, "nine", "kasenbasch"), new Book(6l, "six", "la sombra"),
 				new Book(7l, "seven", "marquez")));
 	}
 
