@@ -59,9 +59,9 @@ pipeline {
 		
 		stage('Clean container') {
 			steps {
-				bat '''
-					REM Si ya existe el contenedor mi-api, bajar el stack
-					for /f %%i in ('docker ps -q -f name=mi-api') do (
+				 bat '''
+					REM Verificar si existe el contenedor mi-api
+					for /f %%i in ('docker ps -q -f "name=mi-api"') do (
 						docker-compose down
 					)
 				'''
